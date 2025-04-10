@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+.h1 .h2 .h3 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+* body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom Theme Extensions */
+@layer base {
+  :root {
+    /* Replacing Primary color with #be573e (Warm Terracotta) */
+    --color-primary-50: #f8d4c5;    /* Lightest shade */
+    --color-primary-100: #f1b7a3;
+    --color-primary-200: #e79a81;
+    --color-primary-300: #df7d5f;
+    --color-primary-400: #d6603d;
+    --color-primary-500: #be573e;    /* Base shade (your original color) */
+    --color-primary-600: #9f4d36;
+    --color-primary-700: #803f2e;
+    --color-primary-800: #603225;
+    --color-primary-900: #40211d;    /* Darkest shade */
+    --color-primary-950: #2a1415;
+    --color-primary-960: #1b0d0c;
+    --color-primary-980: #261211;
+    --color-primary-990: #c9735e;
+  
+
+    /* Secondary color (Deep Olive) */
+    --color-secondary-100: #dce3d3;
+    --color-secondary-200: #b9c7a8;
+    --color-secondary-300: #97aa7c;
+    --color-secondary-400: #748e51;
+    --color-secondary-500: #517225;     /* Base shade (your original) */
+    --color-secondary-600: #415b1e;
+    --color-secondary-700: #314416;
+    --color-secondary-800: #445f40;
+    --color-secondary-900: #101707;     /* Darkest shade */
+
+    /* Accent color (your original) */
+    --color-accent-0: #ffffff;
+    --color-accent-50: #fafaf9;
+    --color-accent-100: #f5f5f4;
+    --color-accent-200: #f0f0ee;
+    --color-accent-300: #ebebe8;
+    --color-accent-400: #e6e6e3;
+    --color-accent-500: #e1e1dd;         /* Base accent gray */
+    --color-accent-600: #bcbcb8;
+    --color-accent-700: #969693;
+    --color-accent-800: #71716f;
+    --color-accent-900: #4b4b4a;
+    --color-accent-950: #262625;
+
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust this value based on your navbar height */
+  }
+
+  body {
+    @apply bg-[var(--color-primary-900)] text-[var(--color-primary-500)];
+  }
+}

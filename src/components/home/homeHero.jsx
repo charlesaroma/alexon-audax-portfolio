@@ -37,11 +37,42 @@ const HomeHero = () => {
   }, [isHovered]);
 
   return (
-    <section className="min-h-screen  grid place-content-evenly md:grid md:grid-cols-1 lg:grid-cols-2 md:items-center relative overflow-hidden">
-      {/* Pattern BG  */}
+    <section className="min-h-screen grid place-content-evenly md:grid md:grid-cols-1 lg:grid-cols-2 md:items-center relative overflow-hidden">
+      {/* Pattern BG */}
       <div className="absolute opacity-10 h-full w-full bg-[url('https://ik.imagekit.io/ldeismm29/Alexon%20Audax/pattern.png?updatedAt=1744301260230')]"></div>
 
-      {/* Social Icons */}
+      {/* Social Icons - Mobile Version */}
+      <motion.div
+        className="absolute bottom-4 left-0 right-0 z-30 flex md:hidden justify-center gap-3 px-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1 }}
+      >
+        {socialLinks.map((social, index) => (
+          <motion.a
+            key={social.label}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 + 1 }}
+          >
+            <motion.div
+              className="w-8 h-8 rounded-full bg-[var(--color-primary-900)] flex items-center justify-center border border-[var(--color-primary-990)]/40 transition-all duration-300 group-hover:border-[var(--color-primary-500)]/50"
+              whileHover={{ scale: 1.1 }}
+            >
+              {React.createElement(social.icon, {
+                size: 16,
+                className: "text-[var(--color-primary-400)] transition-colors duration-300 group-hover:text-[var(--color-primary-100)]",
+              })}
+            </motion.div>
+          </motion.a>
+        ))}
+      </motion.div>
+
+      {/* Desktop Social Icons */}
       <motion.div
         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 hidden md:flex flex-col gap-4 sm:gap-6"
         initial={{ opacity: 0, x: -20 }}
@@ -83,11 +114,11 @@ const HomeHero = () => {
 
       {/* Image Carousel */}
       <div
-        className="order-1 relative overflow-hidden w-full lg:h-screen flex items-center justify-center px-4 sm:px-6 md:px-8"
+        className="order-1 relative overflow-hidden w-full h-[50vh] md:h-screen flex items-center justify-center px-4"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="relative w-full max-w-2xl h-[400px] sm:h-[500px] md:h-[60vh] lg:h-[85vh] overflow-hidden">
+        <div className="relative w-full max-w-2xl h-full md:h-[85vh] overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -126,14 +157,14 @@ const HomeHero = () => {
 
       {/* Content Section */}
       <motion.div
-        className="order-2 items-start md:items-center px-4 sm:px-6 md:py-0 md:px-8 lg:px-12 z-10 mt-0 pb-6  sm:mt-4 md:mt-0"
+        className="order-2 px-4 sm:px-6 z-10 mt-0 pb-16 md:pb-6 md:mt-0"
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <div className="max-w-xl flex flex-col items-center justify-center mx-auto lg:mx-0 lg:items-start">
           <motion.h1
-            className="text-3xl text-center md:text-start sm:text-4xl md:text-5xl lg:text-6xl font-medium font-[Montserrat] text-[var(--color-primary-400)] mb-4 sm:mb-6"
+            className="text-2xl sm:text-3xl text-center md:text-start md:text-5xl lg:text-6xl font-medium font-[Montserrat] text-[var(--color-primary-400)] mb-3 sm:mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -142,7 +173,7 @@ const HomeHero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-lg text-center md:text-start sm:text-xl md:text-2xl text-[var(--color-secondary-200)] mb-6 sm:mb-8"
+            className="text-base sm:text-lg text-center md:text-start md:text-2xl text-[var(--color-secondary-200)] mb-4 sm:mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -159,20 +190,20 @@ const HomeHero = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-6 sm:gap-5"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
             <Link
               to="/portfolio"
-              className="h-10 sm:h-12 md:h-14 lg:h-10 inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-[var(--color-primary-400)] text-[var(--color-primary-900)] rounded-lg font-medium text-normal sm:text-md md:text-2xl lg:text-lg hover:bg-[var(--color-primary-300)] transition-all duration-300 hover:scale-105"
+              className="w-full sm:w-auto h-10 sm:h-12 inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-[var(--color-primary-400)] text-[var(--color-primary-900)] rounded-lg font-medium text-sm sm:text-base hover:bg-[var(--color-primary-300)] transition-all duration-300 hover:scale-105"
             >
               View Portfolio
             </Link>
             <Link
               to="/contact"
-              className="h-10 sm:h-12 md:h-14 lg:h-10 inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 border border-[var(--color-secondary-200)] text-[var(--color-secondary-200)] rounded-lg font-medium text-normal sm:text-md md:text-2xl lg:text-lg hover:bg-[var(--color-secondary-100)]/30 transition-all duration-300 hover:scale-105"
+              className="w-full sm:w-auto h-10 sm:h-12 inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 border border-[var(--color-secondary-200)] text-[var(--color-secondary-200)] rounded-lg font-medium text-sm sm:text-base hover:bg-[var(--color-secondary-100)]/30 transition-all duration-300 hover:scale-105"
             >
               Get in Touch
             </Link>

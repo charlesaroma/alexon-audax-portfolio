@@ -16,14 +16,14 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-primary-500)]">
               About Alexon
             </h2>
-            <p className="text-[var(--color-secondary-100)] text-lg leading-relaxed">
+            <p className="text-[var(--color-secondary-100)] text-md md:text-lg leading-relaxed">
               A Tanzanian-born Ugandan actor whose contributions have
               significantly shaped Uganda's film and television industry. With
               his athletic build, dark hair, brown eyes, and signature baritone
               voice, Alexon captivates audiences with depth and emotional
               intensity across a wide range of roles.
             </p>
-            <p className="text-[var(--color-secondary-100)] text-lg leading-relaxed">
+            <p className="text-[var(--color-secondary-100)] text-md md:text-lg leading-relaxed">
               His journey in the entertainment industry spans over a decade,
               marked by numerous acclaimed performances and a commitment to
               nurturing the next generation of talent through his acting

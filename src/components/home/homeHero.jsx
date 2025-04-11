@@ -14,11 +14,11 @@ const images = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram", color: "#E4405F" },
-  { icon: FaTiktok, href: "#", label: "TikTok", color: "#000000" },
-  { icon: RiTwitterXFill, href: "#", label: "X", color: "#000000" },
+  { icon: Instagram, href: "https://www.instagram.com/alexonaudax?igsh=MXVienczeHg1a2JyZQ==", label: "Instagram", color: "#E4405F" },
+  { icon: FaTiktok, href: "https://www.tiktok.com/@alexonaudax256?_t=ZM-8vRmuQhtMGL&_r=1", label: "TikTok", color: "#000000" },
+  { icon: RiTwitterXFill, href: "https://x.com/lex_dax?t=pf9i9zBC95xKnQLrMb7EMg&s=09", label: "X", color: "#000000" },
   { icon: Linkedin, href: "#", label: "LinkedIn", color: "#0A66C2" },
-  { icon: Facebook, href: "#", label: "Facebook", color: "#1877F2" },
+  { icon: Facebook, href: "https://www.facebook.com/share/1HT4LMNGuc/", label: "Facebook", color: "#1877F2" },
 ];
 
 const transitionDuration = 5;

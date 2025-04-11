@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const PortfolioHero = () => {
   return (
-    <section className="min-h-screen relative overflow-hidden bg-[var(--color-primary-960)]">
+    <section className="min-h-screen relative overflow-hidden">
       {/* Pattern BG */}
       <div className="absolute opacity-10 h-full w-full bg-[url('https://ik.imagekit.io/ldeismm29/Alexon%20Audax/pattern.png?updatedAt=1744301260230')]"></div>
 
@@ -55,7 +55,7 @@ const PortfolioHero = () => {
 
           {/* Animated Scroll Indicator */}
           <motion.div
-            className="absolute bottom-12 sm:bottom-16 md:bottom-20 lg:bottom-24 left-1/2 -translate-x-1/2"
+            className="absolute bottom-14 sm:bottom-16 md:bottom-20 lg:bottom-24 left-1/2 -translate-x-1/2"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 

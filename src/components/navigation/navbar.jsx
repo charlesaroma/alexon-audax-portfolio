@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Briefcase, Image, Mail, Menu, X } from "lucide-react";
 import { NavLink, Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,6 +17,20 @@ const socialLinks = [
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navItems = [
     {
@@ -89,9 +103,15 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="absolute top-0 w-full py-4 flex px-4 items-center justify-between">
+      <div 
+        className={`${
+          isScrolled 
+            ? "fixed top-4 left-0 right-0 bg-[var(--color-primary-980)]/80 backdrop-blur-lg shadow-lg rounded-md" 
+            : "absolute top-0"
+        } w-full py-4 flex px-4 items-center justify-between transition-all duration-300 z-50 lg:mx-0 lg:top-0 lg:rounded-none`}
+      >
         {/* Logo */}
-        <Link to="/" className=" z-50 lg:hidden">
+        <Link to="/" className="z-50 lg:hidden">
           <motion.h1
             className="text-3xl font-bold text-[var(--color-secondary-300)]"
             initial={{ opacity: 0, y: -20 }}
@@ -104,7 +124,11 @@ const Navbar = () => {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className=" z-50 p-2 rounded-full bg-[var(--color-primary-400)]/10 border border-[var(--color-primary-400)]/10 backdrop-blur-lg lg:hidden"
+          className={`z-50 p-2 rounded-full ${
+            isScrolled 
+              ? "bg-[var(--color-primary-400)]/20" 
+              : "bg-[var(--color-primary-400)]/10"
+          } border border-[var(--color-primary-400)]/10 backdrop-blur-lg lg:hidden`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           animate={isMenuOpen ? { rotate: 180 } : { rotate: 0 }}
